@@ -22,3 +22,12 @@ Todo
 
 * default the common case that the source for hack "foo" is in
   "foo.arc"?
+
+* earlier detection of refering to a hack or source file that doesn't
+  exist
+
+* I'm unclear on how to handle relationships between recipes.  For
+  example, my lib/recipe depends on the Arc 3.1 recipe, and won't work
+  without it, so it should have a reference to it.  On the other hand
+  I may want to substitute my own different recipe for fulfilling the
+  Arc prerequisite.
