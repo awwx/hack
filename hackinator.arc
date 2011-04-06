@@ -26,13 +26,19 @@
                        (err "unknown option" arg)))
          (push arg hacks-wanted))))
 
-(let destdir (or destdir (tmpdir))
-  (case action
+(def welcome ()
+  (prn "The hackinator is at your service."))
 
-    run   (run-recipe hacks-wanted destdir clean)
+(if args
 
-    apply (do (apply-recipe hacks-wanted destdir clean)
-              (prn destdir))
+     (let destdir (or destdir (tmpdir))
+       (case action
 
-    solve (solve hacks-wanted)))
+         run   (run-recipe hacks-wanted destdir clean)
 
+         apply (do (apply-recipe hacks-wanted destdir clean)
+                   (prn destdir))
+
+         solve (solve hacks-wanted)))
+
+     (welcome))
