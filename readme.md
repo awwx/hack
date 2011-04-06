@@ -16,7 +16,7 @@ Todo
 
 * git repos would be better downloaded with git clone instead of http
 
-* currently have to way to update to the latest version of code
+* currently have no way to update to the latest version of code
   previously fetched from the web, aside from manually deleting the
   cache directory
 
