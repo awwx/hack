@@ -1,6 +1,7 @@
-This is the source to the Hackinator.  Since the Hackinator uses
+This is the source to the hackinator.  since the hackinator uses
 itself as its build system (how else?), see
-[https://github.com/awwx/hackbin](hackbin) for the runnable version.
+[hackbin](https://github.com/awwx/hackbin) for the runnable version
+produced by running `hack` on `hackinator.recipe`.
 
 
 Todo
