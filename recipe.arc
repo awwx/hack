@@ -29,7 +29,7 @@
   (w/basedir* basedir
     (map apply-datum recipe)
     (handle-explicit-files (qlist kb!wanted))
-    nil))
+    t))
 
 ;; Resolves needed dependencies, and returns the completed recipe
 ;; which contains only concrete hacks.

@@ -35,7 +35,7 @@
   (if (or kb.relation.x.y kb.inverse.y.x)
        (err "conflicting" relation x y))
 
-  (unless kb.relation.x.y
+  (unless kb.relation.y.x
 
     (or= kb.relation.y (table))
     (set kb.relation.y.x)
@@ -43,7 +43,8 @@
     (set kb.inverse.x.y)
 
     (map [transitive-closure relation inverse x _] (all-of inverse y))
-    (map [transitive-closure relation inverse _ y] (all-of relation x))))
+    (map [transitive-closure relation inverse _ y] (all-of relation x)))
+  t)
 
 ; A patches B
 
