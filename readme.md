@@ -15,3 +15,10 @@ Todo
 * loading Arc files should be done with Arc's load
 
 * git repos would be better downloaded with git clone instead of http
+
+* currently have to way to update to the latest version of code
+  previously fetched from the web, aside from manually deleting the
+  cache directory
+
+* default to the common case that the source for hack "foo" is in
+  "foo.arc"?
