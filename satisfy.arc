@@ -74,10 +74,13 @@
   (testis (conflicts 'a 'c) nil))
 
 (def preference (hack pref)
-  (= kb!preference.hack pref))
+  (= kb!preference.hack (max pref (or kb!preference.hack 0))))
 
 (def prefer (hack)
   (preference hack 2))
+
+(def recommend (hack)
+  (preference hack 0.5))
 
 (def pref (hack)
   (or kb!preference.hack 0))
