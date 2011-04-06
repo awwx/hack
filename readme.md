@@ -1,6 +1,6 @@
 This is the source to the Hackinator.  Since the Hackinator uses
 itself as its build system (how else?), see
-[https://github.com/awwx/hackbin] for the runnable version.
+[https://github.com/awwx/hackbin](hackbin) for the runnable version.
 
 
 Todo
