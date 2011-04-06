@@ -1,4 +1,4 @@
-This is the source to the hackinator.  since the hackinator uses
+This is the source to the hackinator.  Since the hackinator uses
 itself as its build system (how else?), see
 [hackbin](https://github.com/awwx/hackbin) for the runnable version
 produced by running `hack` on `hackinator.recipe`.
