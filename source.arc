@@ -37,14 +37,23 @@
        (simple-file-extension string.hack)))
 
 (def full-path (base path)
-  (if (relative-path path)
-       (string base (unless (endmatch "/" base) "/") path)
-       path))
+  (aif (begins-rest "./" path)
+        (full-path base it)
+       ;; todo check if we've run out of base path to go up
+       (begins-rest "../" path)
+        (full-path (dirpart base) it)
+       (relative-path path)
+        (string base (unless (endmatch "/" base) "/") path)
+        path))
 
 (testis (full-path "/foo/bar" "x")      "/foo/bar/x")
 (testis (full-path "/foo/bar" "/baz/x") "/baz/x")
 (testis (full-path "http://foo.org/" "abc") "http://foo.org/abc")
 (testis (full-path "http://foo.org/" "http://example.com/abc") "http://example.com/abc")
+(testis (full-path "/foo/bar" "./x")  "/foo/bar/x")
+(testis (full-path "/foo/bar" "../x") "/foo/x")
+(testis (full-path "https://foo.org/bar/baz" "x") "https://foo.org/bar/baz/x")
+(testis (full-path "https://foo.org/bar/baz" "../x") "https://foo.org/bar/x")
 
 (def local-file (basedir n)
   (if (begins n "/")

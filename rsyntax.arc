@@ -78,6 +78,7 @@
    hack basedir))
 
 (def load-recipe-file (hack)
-  (w/basedir* (dirpart hack)
-    (each x (readfile (source-file hack))
-      (apply-datum x))))
+  (let source (source-file hack basedir*)
+    (w/basedir* (dirpart (full-path basedir* hack))
+      (each x (readfile (source-file hack))
+        (apply-datum x)))))

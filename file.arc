@@ -6,8 +6,9 @@
        (lastpos s c (- i 1))))
 
 (def dirpart (path)
-  (aand (lastpos path #\/)
-        (cut path 0 it)))
+  (let path (trim path 'end #\/)
+    (aand (lastpos path #\/)
+          (cut path 0 it))))
 
 (def filepart (path)
   (aif (lastpos path #\/)

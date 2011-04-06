@@ -1,0 +1,26 @@
+arc3.1.recipe
+https://github.com/awwx/lib/raw/master/recipe
+
+aw/alistcall1
+aw/exit-on-eof2
+aw/xloop0
+
+(prefer aw/defvar4)
+aw/implicit3
+
+aw/homedir0
+aw/begins-rest0
+aw/ret0
+aw/cwd0
+aw/partition0
+aw/re3
+aw/urlencode3
+
+/code/hack/trace.arc
+
+download.arc
+file.arc
+satisfy.arc
+source.arc
+rsyntax.arc
+recipe.arc
