@@ -16,8 +16,6 @@ aw/partition0
 aw/re3
 aw/urlencode3
 
-/code/hack/trace.arc
-
 download.arc
 file.arc
 satisfy.arc
