@@ -10,7 +10,8 @@
                    prereq (arc3.1/ac arc3.1/brackets))
 
   (arc3.1/strings  source "strings.arc"
-                   prereq arc3.1/arc)
+                   prereq arc3.1/arc
+                   provides urlencode)
 
   (arc3.1/pprint   source "pprint.arc"
                    prereq arc3.1/arc)
