@@ -20,5 +20,5 @@ Todo
   previously fetched from the web, aside from manually deleting the
   cache directory
 
-* default to the common case that the source for hack "foo" is in
+* default the common case that the source for hack "foo" is in
   "foo.arc"?
