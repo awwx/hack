@@ -29,7 +29,7 @@
 (def welcome ()
   (prn "The hackinator is at your service."))
 
-(if args
+(if hacks-wanted
 
      (let destdir (or destdir (tmpdir))
        (case action
