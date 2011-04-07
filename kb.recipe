@@ -37,7 +37,7 @@
                    prereq arc3.1/app))
 
 
-(base "https://github.com/awwx/lib/raw/master/" ;; todo
+(base "git://github.com/awwx/lib.git:"
 
   (aw/begins-rest0
     source "begins-rest0.arc"

@@ -12,7 +12,7 @@
        before (table) after (table) abstract (table)
        preference (table) source (table) apply (table)
        patch (table) filename (table) have (table)
-       wanted (queue)))
+       wanted (queue) fetched (table)))
 
 (implicit kb (new-kb))
 

@@ -79,8 +79,6 @@ Todo
 
 * loading Arc files should be done with Arc's load
 
-* git repos would be better downloaded with git clone instead of http
-
 * currently have no way to update to the latest version of code
   previously fetched from the web, aside from manually deleting the
   cache directory
@@ -96,3 +94,8 @@ Todo
   without it, so it should have a reference to it.  On the other hand
   I may want to substitute my own different recipe for fulfilling the
   Arc prerequisite.
+
+* I use ":" as the separator between the git revision and file path
+  since that's what git uses in e.g. the git-show command; for
+  consistency I should use a colon as the separator for tar files as
+  well.

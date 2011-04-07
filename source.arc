@@ -44,6 +44,37 @@
              revision "arcc"
              file     "arcc/ac.arc"))
 
+(def path xs
+  (string (intersperse "/" xs)))
+
+(testis (path "abc") "abc")
+(testis (path "abc" "def") "abc/def")
+(testis (path "abc" "def" "ghi") "abc/def/ghi")
+
+(def git-path (git)
+  (path (filenamize (cut git!repo 6))
+        (filenamize (or git!revision "master"))))
+
+(testis (git-path (parse-git-spec "git://github.com/nex3/arc.git#arcc"))
+        "github.com_nex3_arc.git/arcc")
+
+(def git-revision (git)
+  (string git!repo "#" (or git!revision "master")))
+
+(def checkout-git (git)
+  (ret gitdir (path download-dir* "git" (git-path git))
+    (if (dir-exists gitdir)
+         (unless (kb!fetched (git-revision git))
+           (w/cwd gitdir
+             ;; simply ignore errors if we're not on a branch here
+             (system*code "/usr/bin/git" "pull")))
+         (do (ensure-dir (dirpart gitdir))
+             (w/cwd (dirpart gitdir)
+               (system* "/usr/bin/git" "clone" "--no-checkout" git!repo (filepart gitdir)))))
+    (set (kb!fetched (git-revision git)))
+    (w/cwd gitdir
+      (system* "/usr/bin/git" "checkout" (or git!revision "master")))))
+
 ; restrictively defined to be only lower case letters
 
 (def simple-file-extension (n)
@@ -99,6 +130,14 @@
   (iflet (scheme) (urlish n)
     (in scheme "http://" "https://")))
 
+(def git-file? (n)
+  (is (car (urlish n)) "git://"))
+
+(def git-file (hack)
+  (let git (parse-git-spec hack)
+    (let dir (checkout-git git)
+      (path dir git!file))))
+
 (def compound-file (n)
   (aif (urlish n)
         (compound-file (cadr it))
@@ -146,7 +185,8 @@
         (local-file basedir string.hack)
        (network-file? string.hack)
         (download hack)
+       (git-file? string.hack)
+        (git-file string.hack)
        kb!source.hack
         (source-file it)
         (err "no source file known for hack:" hack)))
-

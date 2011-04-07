@@ -5,8 +5,13 @@
   (or (begins-rest "http://" url)
       (begins-rest "https://" url)))
 
+(def system*code args
+   (apply scheme.system*/exit-code args))
+
+(testis (system*code "/bin/true")  0)
+(testis (system*code "/bin/false") 1)
+
 (def system* args
-  ; (ero 'system* args)
   (or (scheme.tnil (apply scheme.system* args))
       (err "system* failed" args)))
 
