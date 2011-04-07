@@ -74,8 +74,19 @@
   (testis (conflicts 'b 'a) t)
   (testis (conflicts 'a 'c) nil))
 
+(def maxif (a b)
+  (if (and a b)
+       (max a b)
+      a a
+      b b))
+      
+(testis (maxif 3 5)     5)
+(testis (maxif 3 nil)   3)
+(testis (maxif nil 5)   5)
+(testis (maxif nil nil) nil)
+
 (def preference (hack pref)
-  (= kb!preference.hack (max pref (or kb!preference.hack 0))))
+  (= kb!preference.hack (maxif pref kb!preference.hack)))
 
 (def prefer (hack)
   (preference hack 2))
