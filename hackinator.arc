@@ -26,6 +26,8 @@
                        (err "unknown option" arg)))
          (push arg hacks-wanted))))
 
+(background (full-path srcdir* "kb.recipe"))
+
 (def welcome ()
   (prn "The hackinator is at your service."))
 
