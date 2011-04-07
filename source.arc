@@ -10,6 +10,40 @@
           "-x"
           "-f" tarfile)))))
 
+(def parse-git-spec (spec)
+  (and (begins spec "git://")
+       (iflet p (pos [in _ #\: #\#] spec 6)
+         (with (repo (cut spec 0 p)
+                rest (cut spec p))
+           (if (begins rest "#")
+                (iflet p (pos #\: rest)
+                  (obj repo     repo
+                       revision (cut rest 1 p)
+                       file     (cut rest (+ 1 p)))
+                  (obj repo     repo
+                       revision (cut rest 1)))
+                (obj repo repo
+                     file (cut rest 1))))
+         (obj repo spec))))
+
+(testis (parse-git-spec "foo.arc") nil)
+
+(testis (parse-git-spec "git://github.com/nex3/arc.git")
+        (obj repo "git://github.com/nex3/arc.git"))
+
+(testis (parse-git-spec "git://github.com/nex3/arc.git:lib/ns.arc")
+        (obj repo "git://github.com/nex3/arc.git"
+             file "lib/ns.arc"))
+
+(testis (parse-git-spec "git://github.com/nex3/arc.git#arcc")
+        (obj repo     "git://github.com/nex3/arc.git"
+             revision "arcc"))
+
+(testis (parse-git-spec "git://github.com/nex3/arc.git#arcc:arcc/ac.arc")
+        (obj repo     "git://github.com/nex3/arc.git"
+             revision "arcc"
+             file     "arcc/ac.arc"))
+
 ; restrictively defined to be only lower case letters
 
 (def simple-file-extension (n)
