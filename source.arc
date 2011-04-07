@@ -71,9 +71,10 @@
          (do (ensure-dir (dirpart gitdir))
              (w/cwd (dirpart gitdir)
                (system* "/usr/bin/git" "clone" "--no-checkout" git!repo (filepart gitdir)))))
-    (set (kb!fetched (git-revision git)))
-    (w/cwd gitdir
-      (system* "/usr/bin/git" "checkout" (or git!revision "master")))))
+    (unless (kb!fetched (git-revision git))
+      (w/cwd gitdir
+        (system* "/usr/bin/git" "checkout" (or git!revision "master")))
+      (set (kb!fetched (git-revision git))))))
 
 ; restrictively defined to be only lower case letters
 
