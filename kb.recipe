@@ -197,38 +197,38 @@
 
 (base "git://github.com/awwx/hack.git#v10:"
 
-  (aw/hackinator9/file
+  (aw/hackinator10/file
     source "file.arc"
     prereq (arc3.1/arc arc3.1/strings))
 
   ;; todo there's also a dependency on wget
 
-  (aw/hackinator9/download
+  (aw/hackinator10/download
     source "download.arc"
     prereq (arc3.1/arc aw/begins-rest0 aw/scheme0 aw/homedir0
-            aw/ret0 aw/testing0 aw/hackinator9/file))
+            aw/ret0 aw/testing0 aw/hackinator10/file))
 
-  (aw/hackinator9/satisfy
+  (aw/hackinator10/satisfy
     source "satisfy.arc"
     prereq (arc3.1/arc arc3.1/strings aw/implicit3 aw/testing0
             aw/urlencode3 aw/alistcall1))
 
   ;; todo dependencies on sha224sum, tar, git
 
-  (aw/hackinator9/source
+  (aw/hackinator10/source
     source "source.arc"
-    prereq (arc3.1/arc arc3.1/strings aw/cwd0 aw/hackinator9/download
-            aw/testing0 aw/hackinator9/satisfy aw/re3 aw/begins-rest0))
+    prereq (arc3.1/arc arc3.1/strings aw/cwd0 aw/hackinator10/download
+            aw/testing0 aw/hackinator10/satisfy aw/re3 aw/begins-rest0))
 
-  (aw/hackinator9/rsyntax
+  (aw/hackinator10/rsyntax
     source "rsyntax.arc"
-    prereq (arc3.1/arc arc3.1/strings aw/implicit3 aw/hackinator9/satisfy
-            aw/hackinator9/file aw/hackinator9/source
+    prereq (arc3.1/arc arc3.1/strings aw/implicit3 aw/hackinator10/satisfy
+            aw/hackinator10/file aw/hackinator10/source
             aw/re3 aw/readline2))
 
-  (aw/hackinator9/recipe
+  (aw/hackinator10/recipe
     source "recipe.arc"
-    prereq (arc3.1/arc aw/partition0 aw/implicit3 aw/hackinator9/rsyntax
-            aw/hackinator9/source))
+    prereq (arc3.1/arc aw/partition0 aw/implicit3 aw/hackinator10/rsyntax
+            aw/hackinator10/source))
 
 )
