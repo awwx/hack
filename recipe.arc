@@ -13,6 +13,9 @@
 ; these shenanigans are to get explicit files loaded in order after
 ; symbolic hacks... but would be better to just append them to the load
 ; order
+;
+; no wait, this is wrong: sometimes I want to apply an explicitly
+; named hack before symbolic hacks.
  
 (def handle-explicit-files (wanted)
   (with (previous-hack nil previous-arc nil)

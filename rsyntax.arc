@@ -37,8 +37,7 @@
 ; leave off the ".recipe" extension
 
 (def recipe-file (n)
-  (or (or (is (filepart n) "recipe")
-          (is (file-extension n) "recipe"))
+  (or (is (file-extension n) "recipe")
       (and (local-file? n)
            (in (simple-file-extension n) nil "recipe"))))
        

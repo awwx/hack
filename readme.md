@@ -99,3 +99,7 @@ Todo
   since that's what git uses in e.g. the git-show command; for
   consistency I should use a colon as the separator for tar files as
   well.
+
+* explicitly specified files in assertions shouldn't need to be
+  strings: currently `("/code/hack/notest.arc" provides aw/testing0)`
+  works but `(/code/hack/notest.arc provides aw/testing0)` doesn't.
