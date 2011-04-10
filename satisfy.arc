@@ -229,7 +229,7 @@
 (def abstract (a)
   (set kb!abstract.a))
 
-; A concrete hack is one that can actually be loaded or applied.
+; A concrete hack is one that can be loaded or applied itself.
 
 (def concrete (a)
   (no kb!abstract.a))

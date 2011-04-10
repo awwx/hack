@@ -57,6 +57,10 @@
   (aw/equal-wrt-testing0
     source "equal-wrt-testing0.arc")
 
+  (aw/equal-wrt-testing1
+    source "equal-wrt-testing1.arc"
+    replaces aw/equal-wrt-testing0)
+
   (aw/test0
     source "test0.arc"
     prereq aw/equal-wrt-testing0
@@ -165,7 +169,7 @@
 
   (aw/match0
     source "match0.arc"
-    prereq (aw/implicit3 aw/test0 aw/ret0 aw/xloop0))
+    prereq (arc3.1/strings aw/implicit3 aw/test0 aw/ret0 aw/xloop0))
 
   (aw/defrule0
     source "defrule0.arc"
@@ -191,7 +195,12 @@
 
   (aw/tojson0
     source "tojson0.arc"
-    prereq (arc3.1/arc aw/between0)))
+    prereq (arc3.1/arc aw/between0))
+
+  (aw/fromjson2
+    source "fromjson2.arc"
+    prereq aw/match0))
+
 
 ; todo I don't know what the right way to handle versions is
 
