@@ -75,6 +75,10 @@ Todo
 * some less ridiculously naive resolution algorithm, once I have a
   clue as to what the problem domain looks like
 
+* either accept a source code file being listed more than once in the
+  recipe or at least display an understandable error instead of
+  complaining about conflicting load order
+
 * details of how to run Arc programs should be part of the recipe
 
 * loading Arc files should be done with Arc's load
