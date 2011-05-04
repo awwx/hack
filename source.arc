@@ -64,9 +64,10 @@
 (def checkout-git (git)
   (ret gitdir (path download-dir* "git" (git-path git))
     (if (dir-exists gitdir)
-         (unless (kb!fetched (git-revision git))
+         (unless (or (no update-repos*) (kb!fetched (git-revision git)))
            (w/cwd gitdir
-             ;; simply ignore errors if we're not on a branch here
+             ;; todo I'm simply ignoring errors if we're not on a
+             ;; branch here, but it's ugly
              (system*code "/usr/bin/git" "pull")))
          (do (ensure-dir (dirpart gitdir))
              (w/cwd (dirpart gitdir)

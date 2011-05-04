@@ -13,6 +13,7 @@
 (= destdir nil)
 (= action 'run)
 (wipe clean)
+(wipe update-repos*)
 
 (while args
   (let arg (next)
@@ -23,6 +24,7 @@
              "apply"   (= action 'apply)
              "solve"   (= action 'solve)
              "clean"   (set clean)
+             "update"  (set update-repos*)
                        (err "unknown option" arg)))
          (push arg hacks-wanted))))
 
