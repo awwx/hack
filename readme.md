@@ -1,8 +1,16 @@
-This is the source to the hackinator.  Since the hackinator uses
-itself as its build system (how else?), the runnable version which
-doesn't need the hackinator already installed can be found at
-[hackbin](https://github.com/awwx/hackbin), as described below in the
-installation instructions.
+The hackinator is a system for resolving dependencies between
+libraries using a declarative language outside of the libraries
+themselves, instead of having the libraries declare their dependencies
+with the usual "import" or "require" type statements.
+
+The project is currently at an early pre-alpha stage under
+development, so it isn't doing much useful yet.
+
+This git repository is the source to the hackinator.  Since the
+hackinator uses itself as its build system (how else?), the runnable
+version which doesn't need the hackinator already installed can be
+found at [hackbin](https://github.com/awwx/hackbin), as described
+below in the installation instructions.
 
 
 Installation
