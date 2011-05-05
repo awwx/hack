@@ -83,6 +83,9 @@ Todo
 * some less ridiculously naive resolution algorithm, once I have a
   clue as to what the problem domain looks like
 
+* developing libraries to be used with the hackinator needs to be a
+  lot less terrible
+
 * either accept a source code file being listed more than once in the
   recipe or at least display an understandable error instead of
   complaining about conflicting load order
@@ -115,3 +118,6 @@ Todo
 * explicitly specified files in assertions shouldn't need to be
   strings: currently `("/code/hack/notest.arc" provides aw/testing0)`
   works but `(/code/hack/notest.arc provides aw/testing0)` doesn't.
+
+* need to have a way to indicate relative preferences: I recommend my
+  urlencode3 over my urlencode2 over the urlencode in arc3.1/strings.
